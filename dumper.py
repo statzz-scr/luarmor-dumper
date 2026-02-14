@@ -1,10 +1,6 @@
 import requests
-import os
 
 url = "https://api.luarmor.net/files/v4/loaders/bdbb256085cd59f12cf401606ae14b0e.lua"
-outputt = "output"
-
-os.makedirs(outputt, exist_ok=True)
 
 attempts = [
     {
@@ -58,17 +54,14 @@ attempts = [
 for attempt in attempts:
     try:
         response = requests.get(url, headers=attempt['headers'], timeout=10)
-        output_path = os.path.join(outputt, attempt['filename'])
-        with open(output_path, 'w', encoding='utf-8', errors='ignore') as f:
+        with open(attempt['filename'], 'w', encoding='utf-8', errors='ignore') as f:
             f.write(response.text)
         
         content = response.text
         if content.startswith('--') or 'local' in content[:100] or 'function' in content[:100]:
-            lua_output = os.path.join(outputt, "result.lua")
-            with open(lua_output, 'w') as f:
+            with open("result.lua", 'w') as f:
                 f.write(content)
             
     except Exception as e:
-        error_path = os.path.join(outputt, attempt['filename'])
-        with open(error_path, 'w') as f:
+        with open(attempt['filename'], 'w') as f:
             f.write(str(e))
