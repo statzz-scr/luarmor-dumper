@@ -2,7 +2,7 @@
 
 spoofs clients and such to get contents of a website 
 
-ip install requests
+pip install requests
 
 <img width="563" height="334" alt="ghfghfgfhfhg" src="https://github.com/user-attachments/assets/1ae8c2eb-3e72-4019-8917-2992f7e76383" />
 
