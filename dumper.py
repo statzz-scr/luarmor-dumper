@@ -1,6 +1,6 @@
 import requests
 
-url = "https://api.luarmor.net/files/v4/loaders/bdbb256085cd59f12cf401606ae14b0e.lua"
+url = "https://api.luarmor.net/files/v4/loaders/3f141dae620fd75848dcf52b972c1795.lua"
 
 attempts = [
     {
